@@ -1,0 +1,49 @@
+.device_eval{
+    padding: 10px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 10px;
+    
+}
+.right{
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.evaluation{
+    height: 100%;
+}
+.mobile_display{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid black;
+}
+.mobile_display img{
+    width: 100px;
+    height: fit-content
+}
+.mobile h2{
+    font-weight: 500;
+}
+
+.evaluation{
+    padding: 10px
+}
+
+.evaluation h4{
+    font-size: 30px;
+    color: red;
+    font-weight: lighter;
+}
+
+.detail{
+    display: flex;
+    color: red;
+    font-weight: 200;
+    gap:10px;
+    text-decoration: line-through;
+      
+}

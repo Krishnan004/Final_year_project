@@ -1,0 +1,54 @@
+.content_excat {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left img{
+    max-width: 300px;;
+}
+
+.right {
+    width: 100%;
+}
+
+.right h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.right price {  /* Corrected selector */
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(84, 177, 84);
+}
+
+.plus_point {
+    display: flex;
+}
+
+.plus_point div {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    min-width: 50px; /* Ensuring proper sizing */
+}
+
+.plus_point div:nth-child(2) {
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.plus_point img {
+    width: 30px;
+}

@@ -1,0 +1,85 @@
+.device_check{
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.head_sec{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.head{
+    font-size: 20px;
+    font-weight: 500
+}
+.discription{
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(152, 219, 152)
+}
+
+.question_sec{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.question_sec label{
+    display: block;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.question_sec input{
+    border: 2px solid black;
+    font-size: 20px
+}
+
+.radio{
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    gap: 10px
+}
+
+.radio_div{
+    width:150px;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid rgb(235, 230, 230);
+    border-radius: 5px; 
+    background-color: whitesmoke;
+}
+.btn_sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg,  #1ccc48, #54e679);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.btn:hover {
+    background: linear-gradient(45deg,  #1ccc48, #35db5f);
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+}

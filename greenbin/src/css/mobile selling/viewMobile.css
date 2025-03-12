@@ -1,0 +1,73 @@
+.mobile_view{
+    margin: 10px;
+    padding: 40px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+    height: 70vh;
+}
+
+.sell_head{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold
+}
+
+.image{
+    padding: 20px;
+    width:30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.image img{
+    width:150px;
+    height: fit-content;
+    border-radius: 10px;
+    
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.right h1{
+    font-size: 20px;
+}
+
+.price_category h2{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.price_category price{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(84, 177, 84);
+}
+
+.exact_btn{
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg,  #1ccc48, #54e679);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.exact_btn:hover {
+    background: linear-gradient(45deg,  #1ccc48, #35db5f);
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.exact_btn:active {
+    transform: scale(0.95);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+}

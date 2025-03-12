@@ -1,0 +1,43 @@
+.about{
+    display: flex;
+    justify-content: space-between;
+    background: white
+}
+.service {
+    width: 40%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: whitesmoke ; /* semi-transparent white background */
+    backdrop-filter: blur(50px);  /* Apply blur effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* .service:hover{
+    box-shadow: 0 4px 8px greenyellow;
+} */
+
+.service h1{
+    padding: 10px 0px;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 1px solid green;
+}
+
+.service p{
+    padding: 10px 0px;
+    font-size: 20px;
+}
+
+.service button{
+    padding: 5px;
+    border: 2px solid green;
+    border-radius: 10px 15px ;
+    transition: 0.3s ease-in-out;
+    font-weight: normal
+}
+
+.service button:hover {
+    border-color: greenyellow;
+}

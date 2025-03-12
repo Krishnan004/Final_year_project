@@ -1,0 +1,29 @@
+.footer{
+    display:flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.logo{
+    width: 120px;
+    height: auto;
+}
+
+.network{
+    display: flex;
+    gap:20px;
+    
+}
+
+.network nav{
+    width: 30px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    text-shadow: 2px 2px 4px gray;
+}
+
+.network nav:hover{
+    color: gray; 
+}

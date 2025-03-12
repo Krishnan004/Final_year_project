@@ -1,0 +1,37 @@
+/* MobileOrder.css */
+.mobile-order-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d1d5db; /* Gray border */
+}
+
+.table-header {
+    background-color: #f3f4f6; /* Light gray background */
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.875rem; /* Small font size */
+}
+
+.table-cell {
+    border: 1px solid #d1d5db; /* Gray border for cells */
+    padding: 0.5rem; /* Padding for cells */
+    text-align: center;
+}
+
+.table-cell-heading {
+    border: 1px solid #d1d5db; /* Gray border */
+    padding: 0.5rem;
+    text-transform: capitalize; /* Capitalizes header text */
+}
+
+.table-row:hover {
+    background-color: #f9fafb; /* Light hover effect */
+}
+
+.status-yes {
+    color: #10b981; /* Green color for ✅ */
+}
+
+.status-no {
+    color: #ef4444; /* Red color for ❌ */
+}

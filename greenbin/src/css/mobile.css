@@ -1,0 +1,78 @@
+.selling_portal{
+    padding: 20px;
+    margin: 10px;
+          
+}
+.brand_sec{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap:8px;
+    padding: 8px 
+}
+
+
+.brand {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+.brand:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.mobile_sec {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Creates 4 equal columns */
+    gap: 20px; /* Adds spacing between grid items */
+    padding: 16px; /* Adds padding to the container */
+}
+
+.mobile {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Adds rounded corners */
+    padding: 12px;
+    text-align: center; /* Centers content */
+    align-items: baseline;
+    margin: 2px;
+}
+
+.mobile img {
+    width: 100%; /* Makes image responsive */
+    max-width: 150px;
+    height: 180px;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+.mobile h4 {
+    font-weight: bold; /* Corrected font weight */
+    font-size: 12px;
+    margin-top: 8px;
+    
+}
+
+.selling_portal h1{
+    font-size: 20px;
+    font-weight: 300; 
+}
+
+.selling_portal h1:nth-child(1){
+    font-weight: 500;
+    padding:10px 0px;
+}
+
+.no_item{
+    height: 50vh;
+    display: flex;
+    justify-content: center
+}
