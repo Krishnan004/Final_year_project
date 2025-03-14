@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import '../../css/authentication/userLogin.css'; // Assuming you have a separate CSS file for styling
 import { Context } from '../../context/Context'; // Importing the Context
 import { Link, useNavigate } from 'react-router';
@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router';
 const UserLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { handleLogin, error, loading ,user} = useContext(Context); // Accessing handleLogin from context
+  const { handleLogin, error, loading ,user, checkUserAuth} = useContext(Context); // Accessing handleLogin from context
   const navigate= useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -18,8 +18,8 @@ const UserLogin = () => {
     console.log('Password:', password);
 
     // Calling the handleLogin function from context to login the user
-    await handleLogin(email, password);
-    navigate('/');
+    const success = await handleLogin(email, password);
+    if (success) navigate('/');
   };
 
   const handleGoogleLogin = () => {

@@ -189,7 +189,6 @@ export const ContextProvider = (props) => {
             }
         } catch (error) {
             console.error("User Authentication failed:", error);
-            handleLogout();
         }
     };
 
@@ -199,6 +198,7 @@ export const ContextProvider = (props) => {
 
         if (!token) {
             setAdmin(null);
+            console.log("no token for admine")
             return;
         }
 
@@ -206,18 +206,21 @@ export const ContextProvider = (props) => {
             const response = await api.get("/adminauth/profile", {
                 headers: { Authorization: `Bearer ${token}` }
             });
-
+            console.log("check admin route")
+            console.log(response.data.admin)
+            setAdmin(response.data.admin.id)
             if (response.data.admin) {
                 setAdmin({
                     admin_id: response.data.admin.id,
                     admin_email: response.data.admin.email
                 });
+                console.log(admin)
+
             } else {
                 handleLogout(); // Log admin out if invalid
             }
         } catch (error) {
             console.error("Admin Authentication failed:", error);
-            handleLogout();
         }
     };
 
@@ -271,8 +274,8 @@ export const ContextProvider = (props) => {
     };
 
     useEffect(() => {
-        checkUserAuth(); // For user
-        checkAdminAuth(); // For admin
+        // checkUserAuth(); // For user
+        checkAdminAuth();
     }, []);
 
     const postAddressDetails = async (addressData) => {
@@ -351,6 +354,7 @@ export const ContextProvider = (props) => {
         addEwastedetails,
         setLoading,
         setSellingProductDetails,
+        checkUserAuth,
     }), [
         mobiles, brand, user, orderId, screen, error, loading, sellingProductDetails, admin
     ]);
