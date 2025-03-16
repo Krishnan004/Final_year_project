@@ -51,7 +51,7 @@ const SellingPortal = () => {
                     <h2>Price Summary</h2>
                     <div>
                         <p>Base Price</p>
-                        <p>₹3,040</p>
+                        <p>₹{Math.floor(mobile.price*5/100)}</p>
                     </div>
                     <div>
                         <p>Pickup Charges</p>

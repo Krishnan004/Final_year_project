@@ -18,6 +18,8 @@ import AcceptOrder from './component/admine/AcceptOrder';
 import AdminLogin from './component/authentication/AdminLogin';
 import AdminSignUp from './component/authentication/AdminSignUp';
 import AdminProtectRouter from './component/authentication/AdminProtectRouter';
+import LogisticTable from './component/admine/LogisticTable';
+import About from './component/home/About';
 
 const App = () => {
   const { user } = useContext(Context);
@@ -31,6 +33,7 @@ const App = () => {
         <Route path="/signup" element={<UserSignUp />} />
         <Route path="admine/login" element={<AdminLogin/>}/>
         <Route path="admine/signup" element={<AdminSignUp/>}/>
+        <Route path="/about" element={<About/>} />
 
 
         {/* Protected Routes */}
@@ -40,6 +43,7 @@ const App = () => {
         <Route path="/sellingportal/:id" element={<ProtectedRoute><SellingPortal /></ProtectedRoute>} />
         <Route path="/admine" element={<AdminProtectRouter><OrderPlaced/></AdminProtectRouter>}/>
         <Route path="/acceptorder/:userid/:orderid" element={<AcceptOrder/>}/>
+        <Route path="/employe" element={<LogisticTable/>}/>
       </Routes>
       <Footer />
     </div>

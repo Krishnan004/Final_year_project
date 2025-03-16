@@ -164,4 +164,49 @@ router.get('/orderplaced', (req, res) => {
     });
 });
 
+router.get('/employee_orders', (req, res) => {
+    const query = "SELECT id, userid, address, pincode, locality, alternate_phonenumber FROM address_detail_cus WHERE order_confirm = 1 order_received = 0";
+
+    db.query(query, (err, data) => {
+        if (err) {
+            console.error("Error fetching employee orders:", err);
+            return res.status(500).json({ message: "Failed to fetch employee orders." });
+        }
+
+        if (data.length === 0) {
+            return res.status(404).json({ message: "No confirmed orders found." });
+        }
+
+        res.json(data);
+    });
+});
+
+router.put('/confirm', (req, res) => {
+    const { order_confirm,id } = req.body;
+    const query = "UPDATE address_detail_cus SET order_confirm = ? WHERE id = ?";
+
+    db.query(query, [order_confirm,id], (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ message: 'Failed to update order confirmation.' });
+        }
+        res.json({ message: 'Order confirmed successfully', data });
+    });
+});
+
+router.put('/pickedup', (req, res) => {
+    const { id } = req.body; // Only `id` is needed
+    const query = "UPDATE address_detail_cus SET order_received = 1  WHERE id = ?";
+
+    db.query(query, [id], (err, data) => {
+        if (err) {
+            console.error("Error updating order status:", err);
+            return res.status(500).json({ message: "Failed to update order status." });
+        }
+        res.json({ message: "Order marked as received successfully", data });
+    });
+});
+
+
+
 module.exports = router;

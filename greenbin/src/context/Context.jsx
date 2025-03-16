@@ -1,5 +1,6 @@
 import React, { createContext, useState, useMemo, useEffect, useCallback } from 'react';
 import api from "../api/api";
+import Loading from './Loading';
 
 export const Context = createContext();
 
@@ -10,7 +11,9 @@ export const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false); // State for loading
     const [screen, setScreen] = useState(1);
     const [orderId, setOrderId] = useState();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(()=>{
+
+    });
     const [admin, setAdmin] = useState(null);  // For admin
 
     const [sellingProductDetails, setSellingProductDetails] = useState({
@@ -131,24 +134,28 @@ export const ContextProvider = (props) => {
     // Function to log in the user
     const handleLogin = async (emailid, password) => {
         try {
+            setError(null); // Clear any previous error
             const response = await api.post("/userauth/login", { emailid, password });
-
+    
             if (response.data.token) {
                 localStorage.setItem("token", response.data.token);
                 api.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-
+    
                 setUser({
                     user_id: response.data.userId,
                     user_email: emailid
                 });
-
+    
                 console.log("Login Successful:", response.data.userId);
+                return true; // Indicate success
             }
         } catch (error) {
             console.error("Login failed:", error.response?.data?.message || error.message);
             setError(error.response?.data?.message || "Invalid email or password.");
+            return false; // Indicate failure
         }
     };
+    
 
     // Function to sign up the user
     const handleSignUp = async (username, emailid, password) => {
@@ -167,30 +174,40 @@ export const ContextProvider = (props) => {
     };
 
     const checkUserAuth = async () => {
+        setLoading(true);
         const token = localStorage.getItem("token");
-
+    
         if (!token) {
             setUser(null);
+            setLoading(false);
             return;
         }
-
+    
         try {
             const response = await api.get("/userauth/profile", {
                 headers: { Authorization: `Bearer ${token}` }
             });
-
-            if (response.data.user) {
+    
+            if (response?.data?.user) {
                 setUser({
                     user_id: response.data.user.id,
                     user_email: response.data.user.emailid
                 });
             } else {
-                handleLogout(); // Log user out if invalid
+                handleLogout(); // Log user out if token is invalid
             }
         } catch (error) {
             console.error("User Authentication failed:", error);
+    
+            // Handle token expiration or unauthorized error
+            if (error.response?.status === 401) {
+                handleLogout();
+            }
+        } finally {
+            setLoading(false); // Ensures loading state is reset after request completion
         }
     };
+    
 
     // Admin authentication check
     const checkAdminAuth = async () => {
@@ -273,8 +290,27 @@ export const ContextProvider = (props) => {
         }
     };
 
+    const handleConfirmOrder = async (order_confirm,id) => {
+        try {
+            const response = await api.put("/selling/confirm", { order_confirm,id });
+            console.log("Order Confirmed for pick up", response);
+        } catch (error) {
+            console.log("Error confirming order for pickup", error);
+        }
+    };
+
+    const handleConfirmPickup = async (id) => {
+        try {
+            const response = await api.put("/selling/pickedup", { id });
+            console.log("Order picked up", response);
+        } catch (error) {
+            console.log("Error in order pickup", error);
+        }
+    };
+    
+
     useEffect(() => {
-        // checkUserAuth(); // For user
+        checkUserAuth(); // For user
         checkAdminAuth();
     }, []);
 
@@ -355,6 +391,8 @@ export const ContextProvider = (props) => {
         setLoading,
         setSellingProductDetails,
         checkUserAuth,
+        handleConfirmOrder,
+        handleConfirmPickup,
     }), [
         mobiles, brand, user, orderId, screen, error, loading, sellingProductDetails, admin
     ]);
@@ -362,7 +400,7 @@ export const ContextProvider = (props) => {
 
     return (
         <Context.Provider value={ContextValue}>
-            {props.children}
+            { props.children}
         </Context.Provider>
     );
 };

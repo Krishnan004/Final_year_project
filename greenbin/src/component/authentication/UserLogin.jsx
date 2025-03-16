@@ -14,13 +14,15 @@ const UserLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log("Email:", email);
+    console.log("Password:", password);
 
-    // Calling the handleLogin function from context to login the user
     const success = await handleLogin(email, password);
-    if (success) navigate('/');
-  };
+    if (success) {
+        navigate("/");
+    }
+};
+
 
   const handleGoogleLogin = () => {
     console.log('Google login clicked');

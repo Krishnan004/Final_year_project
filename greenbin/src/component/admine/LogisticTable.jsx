@@ -4,14 +4,14 @@ import api from "../../api/api";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 
-const OrderPlaced = () => {
+const LogisticTable = () => {
     const [orders, setOrders] = useState([]); // State to store order details
-    const { handleConfirmOrder } = useContext(Context);
+    const { handleConfirmPickup } = useContext(Context);
 
     // Fetch data from the API
     const fetchOrderDetails = async () => {
         try {
-            const response = await api.get("/selling/orderplaced");
+            const response = await api.get("/selling/employee_orders");
             setOrders(response.data); // Store the array of orders in state
         } catch (error) {
             console.error("Error fetching order details:", error);
@@ -24,8 +24,8 @@ const OrderPlaced = () => {
     }, []);
 
     // Handle order confirmation and update UI
-    const handleConfirmClick = async (status, orderId) => {
-        await handleConfirmOrder(status, orderId);
+    const handleConfirmClick = async (orderId) => {
+        await handleConfirmPickup(orderId);
         fetchOrderDetails(); // Refresh the order list after updating
     };
 
@@ -39,7 +39,6 @@ const OrderPlaced = () => {
                             <th className="border border-gray-300 p-2">Address</th>
                             <th className="border border-gray-300 p-2">Pincode</th>
                             <th className="border border-gray-300 p-2">Locality</th>
-                            <th className="border border-gray-300 p-2">UPID</th>
                             <th className="border border-gray-300 p-2">Alternate Phone</th>
                             <th className="border border-gray-300 p-2">Confirm</th>
                         </tr>
@@ -50,7 +49,7 @@ const OrderPlaced = () => {
                                 <tr key={index} className="border border-gray-300 hover:bg-gray-100">
                                     <td className="border border-gray-300 p-2">
                                         <Link
-                                            to={`/acceptorder/${order.userid}/${order.order_id}`}
+                                            to={`/acceptorder/${order.userid}/${order.id}`} 
                                             className="text-blue-500 underline"
                                         >
                                             {order.address}
@@ -58,16 +57,15 @@ const OrderPlaced = () => {
                                     </td>
                                     <td className="border border-gray-300 p-2">{order.pincode}</td>
                                     <td className="border border-gray-300 p-2">{order.locality || "N/A"}</td>
-                                    <td className="border border-gray-300 p-2">{order.upid || "N/A"}</td>
                                     <td className="border border-gray-300 p-2">{order.alternate_phonenumber || "N/A"}</td>
-                                    <td className="btn2" onClick={() => handleConfirmClick(order.order_confirm ? 0 : 1, order.id)}>
-                                        {order.order_confirm ? "Cancel" : "Confirm"}
+                                    <td className="btn2" onClick={() => handleConfirmClick(order.id)}>
+                                        Confirm
                                     </td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="6" className="text-center p-4">No orders found</td>
+                                <td colSpan="5" className="text-center p-4">No orders found</td> {/* Fixed colSpan */}
                             </tr>
                         )}
                     </tbody>
@@ -77,4 +75,4 @@ const OrderPlaced = () => {
     );
 };
 
-export default OrderPlaced;
+export default LogisticTable;

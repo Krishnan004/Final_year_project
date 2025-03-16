@@ -12,24 +12,12 @@ const Header = () => {
       <div className="navigator">
         <Link to="/">Home</Link>
 
-        {/* Service Dropdown */}
-        <div className="dropdown">
-          <Link to="/service">Service</Link>
-          <div className="service_opt">
-            <nav>
-              <Link to="/mobileselling">Mobile selling</Link>
-            </nav>
-            <nav>
-              <Link to="/trash">Trash</Link>
-            </nav>
-            <nav>
-              <Link to="/knowprice">Know the Price</Link>
-            </nav>
-          </div>
-        </div>
+        
+          <Link to="/mobileselling">Mobile selling</Link>
+          
 
-        <Link to="/view">About</Link>
-        <Link to="/help">Help</Link>
+        <Link to="/about">About</Link>
+        {/* <Link to="/help">Help</Link> */}
 
         {/* Login Button */}
         <Link to="/login" className="login-button">Login</Link>

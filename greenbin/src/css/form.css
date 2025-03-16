@@ -72,5 +72,24 @@
     width: 50%;
 }
 
+.btn2 {
+    color: white;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    background: linear-gradient(90deg,  #1ccc48, #54e679);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.btn2:hover {
+    background: linear-gradient(45deg,  #1ccc48, #35db5f);
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn2:active {
+    transform: scale(0.95);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+}
 
