@@ -1,8 +1,56 @@
-/* orderplaced.css */
-.table-container {
+/* General container styling */
+.p-5 {
     padding: 20px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    font-family: 'Calibri', sans-serif;
 }
 
+/* Heading styling */
+h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Router category button styles */
+.router-category {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.router-category button {
+    background-color: #0044cc;
+    color: white;
+    padding: 12px 24px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.router-category button:hover {
+    background-color: #0033aa;
+    transform: scale(1.05);
+}
+
+.router-category button:focus {
+    outline: none;
+    box-shadow: 0 0 10px #0044cc;
+}
+
+/* Table container */
+.overflow-auto {
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -10,20 +58,78 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
+/* Header styling */
 th {
     background-color: #f3f4f6;
+    color: #333;
     font-weight: bold;
 }
 
-td {
-    background-color: #fafafa;
+/* Row styling */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Link styling */
+a {
+    color: #0044cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button styles for confirm/cancel */
+.btn2 {
+    padding: 8px 14px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn2:hover {
+    background-color: #218838;
+}
+
+.btn2.cancel {
+    background-color: #dc3545;
+}
+
+.btn2.cancel:hover {
+    background-color: #c82333;
+}
+
+/* No orders found */
+.text-center {
+    text-align: center;
+    color: #888;
+    font-size: 16px;
+    padding: 20px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .router-category button {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
 }

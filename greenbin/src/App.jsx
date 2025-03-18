@@ -20,6 +20,10 @@ import AdminSignUp from './component/authentication/AdminSignUp';
 import AdminProtectRouter from './component/authentication/AdminProtectRouter';
 import LogisticTable from './component/admine/LogisticTable';
 import About from './component/home/About';
+import OrderReceived from './component/admine/OrderReceived';
+import EwasteOrder from './component/admine/EwasteOrder';
+import EwasteOrderReceived from './component/admine/EwasteOrderReceived';
+import LogisticTableEwaste from './component/admine/LogisticTableEwaste';
 
 const App = () => {
   const { user } = useContext(Context);
@@ -42,8 +46,12 @@ const App = () => {
         <Route path="/mobileselling/evaluvation/:id" element={<ProtectedRoute><DeviceEvaluvation /></ProtectedRoute>} />
         <Route path="/sellingportal/:id" element={<ProtectedRoute><SellingPortal /></ProtectedRoute>} />
         <Route path="/admine" element={<AdminProtectRouter><OrderPlaced/></AdminProtectRouter>}/>
+        <Route path="/orderreceived" element={<OrderReceived/>}/>
+        <Route path="/ewaste" element={<EwasteOrder/>}/>
+        <Route path="/ewastereceived" element={<EwasteOrderReceived/>}/>
         <Route path="/acceptorder/:userid/:orderid" element={<AcceptOrder/>}/>
         <Route path="/employe" element={<LogisticTable/>}/>
+        <Route path="/employe/ewaste" element={<LogisticTableEwaste />}/>
       </Routes>
       <Footer />
     </div>

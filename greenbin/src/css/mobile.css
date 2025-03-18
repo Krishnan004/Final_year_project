@@ -1,78 +1,101 @@
-.selling_portal{
+.selling_portal {
     padding: 20px;
     margin: 10px;
-          
+    font-family: 'Poppins', sans-serif;
 }
-.brand_sec{
+
+/* Styling for Brand Section */
+.brand_sec {
     display: grid;
     grid-template-columns: repeat(6,1fr);
-    gap:8px;
-    padding: 8px 
+     gap: 12px;
+    padding: 12px;
+    justify-content: center;
 }
 
-
+/* Individual Brand Styling */
 .brand {
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 200px;
     height: auto;
     border-radius: 8px;
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
 }
 
+/* Brand Hover Effects */
 .brand:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #54e679, #1ccc48);
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-
+/* Mobile Section Layout */
 .mobile_sec {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Creates 4 equal columns */
-    gap: 20px; /* Adds spacing between grid items */
-    padding: 16px; /* Adds padding to the container */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic columns */
+    gap: 16px;
+    padding: 16px;
 }
 
+/* Individual Mobile Styling */
 .mobile {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Adds rounded corners */
+    border-radius: 10px;
     padding: 12px;
-    text-align: center; /* Centers content */
+    text-align: center;
     align-items: baseline;
     margin: 2px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
 }
 
+/* Hover effect for mobile cards */
+.mobile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Image Styling */
 .mobile img {
-    width: 100%; /* Makes image responsive */
-    max-width: 150px;
-    height: 180px;
+    width: 100%;
+    max-width: 120px;
+    height: 160px;
     display: block;
-    margin: 0 auto; /* Centers the image */
+    margin: 0 auto;
+    border-radius: 6px;
 }
 
+/* Mobile Model Name */
 .mobile h4 {
-    font-weight: bold; /* Corrected font weight */
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 14px;
     margin-top: 8px;
-    
+    color: #333;
 }
 
-.selling_portal h1{
-    font-size: 20px;
-    font-weight: 300; 
-}
-
-.selling_portal h1:nth-child(1){
+/* Section Headings */
+.selling_portal h1 {
+    font-size: 22px;
     font-weight: 500;
-    padding:10px 0px;
+    padding: 10px 0;
+    color: #333;
 }
 
-.no_item{
+/* No Items Section */
+.no_item {
     height: 50vh;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: gray;
 }

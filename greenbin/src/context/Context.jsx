@@ -299,9 +299,27 @@ export const ContextProvider = (props) => {
         }
     };
 
+    const handleConfirmOrderEwaste = async (order_confirm,id) => {
+        try {
+            const response = await api.put("/selling/confirm_ewaste", { order_confirm,id });
+            console.log("Order Confirmed for pick up", response);
+        } catch (error) {
+            console.log("Error confirming order for pickup", error);
+        }
+    };
+
     const handleConfirmPickup = async (id) => {
         try {
             const response = await api.put("/selling/pickedup", { id });
+            console.log("Order picked up", response);
+        } catch (error) {
+            console.log("Error in order pickup", error);
+        }
+    };
+
+    const handleConfirmPickupEwaste = async (id) => {
+        try {
+            const response = await api.put("/selling/pickedup_ewaste", { id });
             console.log("Order picked up", response);
         } catch (error) {
             console.log("Error in order pickup", error);
@@ -393,6 +411,8 @@ export const ContextProvider = (props) => {
         checkUserAuth,
         handleConfirmOrder,
         handleConfirmPickup,
+        handleConfirmOrderEwaste,
+        handleConfirmPickupEwaste,
     }), [
         mobiles, brand, user, orderId, screen, error, loading, sellingProductDetails, admin
     ]);
