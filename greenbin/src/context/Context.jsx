@@ -11,9 +11,7 @@ export const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false); // State for loading
     const [screen, setScreen] = useState(1);
     const [orderId, setOrderId] = useState();
-    const [user, setUser] = useState(()=>{
-
-    });
+    const [user, setUser] = useState(null);
     const [admin, setAdmin] = useState(null);  // For admin
 
     const [sellingProductDetails, setSellingProductDetails] = useState({

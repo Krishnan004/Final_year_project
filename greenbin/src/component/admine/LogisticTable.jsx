@@ -6,7 +6,7 @@ import { Context } from "../../context/Context";
 
 const LogisticTable = () => {
     const [orders, setOrders] = useState([]); // State to store order details
-    const { handleConfirmPickup } = useContext(Context);
+    const { handleConfirmPickup,admin } = useContext(Context);
 
     // Fetch data from the API
     const fetchOrderDetails = async () => {
@@ -30,6 +30,7 @@ const LogisticTable = () => {
     };
 
     return (
+        
         <div className="p-5">
             <h2 className="text-2xl font-bold mb-4">Orders Placed</h2>
             <div className="router-category">

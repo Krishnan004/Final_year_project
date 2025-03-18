@@ -1,73 +1,170 @@
-.mobile_view{
-    margin: 10px;
-    padding: 40px;
-    display: flex;
-    border-radius: 10px;
-    align-items: center;
-    background-color: white;
-    height: 70vh;
-}
+/* ViewMobile.css */
 
-.sell_head{
+/* Global styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Page container to center content */
+  .page-container {
+    min-height: 100vh;
     padding: 20px;
-    font-size: 30px;
-    font-weight: bold
-}
-
-.image{
-    padding: 20px;
-    width:30%;
+    background-color: #f5f5f5;
+  }
+  
+  /* Card container with shadow and rounded corners */
+  .mobile_view {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-}
-
-.image img{
-    width:150px;
-    height: fit-content;
-    border-radius: 10px;
-    
-}
-
-.right{
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px auto;
+    width: 1000px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left section for image */
+  .image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Hover effect on image */
+  .image img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Right section for mobile details */
+  .right {
+    width: 55%;
     display: flex;
     flex-direction: column;
-    gap: 20px
-}
-
-.right h1{
-    font-size: 20px;
-}
-
-.price_category h2{
-    font-size: 15px;
-    font-weight: 300;
-}
-
-.price_category price{
-    font-size: 40px;
-    font-weight: bold;
-    color: rgb(84, 177, 84);
-}
-
-.exact_btn{
-    color: white;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  /* Main heading for mobile model */
+  .right h1 {
+    font-size: 24px;
     font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 8px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Price and category section */
+  .price_category {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  /* Get Upto text */
+  .price_category h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+  }
+  
+  /* Big price with red color */
+  .price_category price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4d4d;
+  }
+  
+  /* Sales text */
+  .price_category .sold-info {
+    font-size: 14px;
+    color: #4caf50;
+  }
+  
+  /* Exact value button */
+  .exact_btn {
+    background-color: #00c292;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 24px;
     border: none;
-    background: linear-gradient(90deg,  #1ccc48, #54e679);
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.exact_btn:hover {
-    background: linear-gradient(45deg,  #1ccc48, #35db5f);
-    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.exact_btn:active {
-    transform: scale(0.95);
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    transition: background-color 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  /* Hover effect for button */
+  .exact_btn:hover {
+    background-color: #009e7a;
+  }
+  
+  /* Mobile not found */
+  .not-found {
+    text-align: center;
+    font-size: 24px;
+    color: #ff4d4d;
+    margin-top: 50px;
+  }
+  
+  /* Breadcrumb styles */
+  .breadcrumb {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 5px;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ✅ Mobile View Full Width on Smaller Screens */
+  @media (max-width: 768px) {
+    .mobile_view {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      width: 100%; /* Full width */
+      max-width: 100%; /* Remove any max width for full stretch */
+      margin: 0; /* Remove margin for edge-to-edge design */
+      border-radius: 0; /* Remove border radius to stretch fully */
+    }
+  
+    .image {
+      width: 100%;
+      padding: 10px 0; /* Add some padding for space */
+    }
+  
+    .right {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .exact_btn {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  

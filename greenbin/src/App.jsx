@@ -24,6 +24,7 @@ import OrderReceived from './component/admine/OrderReceived';
 import EwasteOrder from './component/admine/EwasteOrder';
 import EwasteOrderReceived from './component/admine/EwasteOrderReceived';
 import LogisticTableEwaste from './component/admine/LogisticTableEwaste';
+import EmployeAuthProvider from './component/authentication/EmployeAuthProvider';
 
 const App = () => {
   const { user } = useContext(Context);

@@ -31,7 +31,7 @@ const Mobiles = () => {
       <h1>Models</h1>
       <div className="mobile_sec">
         {mobiles.map((mobile, index) => (
-          <Link to={`/mobileselling/${mobile.id}`}>
+          <Link to={`/mobileselling/${mobile.id}`}  key={index}>
           <div className="mobile" key={index}>
             <img src={mobile.image_url} alt="Image" />
             <h4>{mobile.model}</h4>

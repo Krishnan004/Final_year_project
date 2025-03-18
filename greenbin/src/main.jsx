@@ -7,11 +7,11 @@ import {ContextProvider} from "./context/Context"
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ContextProvider>
+  <StrictMode> 
     <BrowserRouter>
+    <ContextProvider>
       <App />
-    </BrowserRouter>
     </ContextProvider>
+    </BrowserRouter>
   </StrictMode>,
 )
